@@ -2,7 +2,7 @@ abstract class Account {
   private readonly accountNumber: number;
   private readonly name: string;
   private balance: number = 0;
-  private status: boolean = false;
+  private status: boolean = true;
   private addOperations = { deposit: "Depósito", loan: "Empréstimo" };
 
   constructor(name: string, accountNumber: number) {
