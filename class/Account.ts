@@ -2,7 +2,7 @@ abstract class Account {
   private readonly accountNumber: number;
   private readonly name: string;
   private balance: number = 0;
-  private status: boolean = true;
+  private status: boolean = false;
   private addOperations = { deposit: "Depósito", loan: "Empréstimo" };
 
   constructor(name: string, accountNumber: number) {
@@ -54,22 +54,30 @@ abstract class Account {
   };
 
   setAddBalance = (value: number): void => {
-    if (this.validateStatus()) {
-      this.balance = this.balance + value;
-    } else {
-      throw new Error("Conta desativada");
+    try {
+      if (this.validateStatus()) {
+        this.balance = this.balance + value;
+      } else {
+        throw new Error("Conta desativada");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   setSubBalance = (value: number): void => {
-    if (this.validateStatus()) {
-      if (this.balance >= value) {
-        this.balance = this.balance - value;
+    try {
+      if (this.validateStatus()) {
+        if (this.balance >= value) {
+          this.balance = this.balance - value;
+        } else {
+          throw new Error("Saldo insuficiente");
+        }
       } else {
-        throw new Error("Saldo insuficiente");
+        throw new Error("Conta desativada");
       }
-    } else {
-      throw new Error("Conta desativada");
+    } catch (error) {
+      console.log(error);
     }
   };
 

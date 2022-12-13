@@ -1,6 +1,6 @@
 import PeopleAccount from "./class/PeopleAccount";
 import CompanyAccount from "./class/CompanyAccount";
-import BonusAccount from "./class/Bonusaccount";
+import BonusAccount from "./class/BonusAccount";
 
 const peopleAccount: PeopleAccount = new PeopleAccount(1234, "Sam", 5678);
 const companyAccount: CompanyAccount = new CompanyAccount("AlePhoto", 434524);
